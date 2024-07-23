@@ -5,17 +5,25 @@ pipeline{
         stage("one"){
             steps{
                 echo "step one"
+				sleep 5
             }
         }
         stage("two"){
             steps{
                 echo "step two"
+				sleep 5
             }
         }
         stage("three"){
-            steps{
-                echo "step three"
-            }
+			when{
+				branch 'master'
+				changeset "**/worker/**"
+			}
+			steps{
+				echo "step three"
+				sleep 5
+			}
+
         }
     }
     
@@ -26,3 +34,4 @@ pipeline{
     }
         
 }
+

@@ -27,6 +27,12 @@ pipeline {
 				}
 			}
 		}
+		stage("Push to Git Repository") {
+            steps {
+                withCredentials([gitUsernamePassword(credentialsId: 'auth token for github', gitToolName: 'Default')]) {
+                    sh "git push -u origin resultbranch"
+                }
+            }
 		}
 	post{
 		always{

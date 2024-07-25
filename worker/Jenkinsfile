@@ -1,6 +1,5 @@
-pipeline {
-// deleted//added a comment
-		agent none
+pipeline{
+	agent none
         stages{
                 stage("build"){
 						when{

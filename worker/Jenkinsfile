@@ -1,5 +1,5 @@
 pipeline {
-#added a comment
+//added a comment
 		agent none
         stages{
                 stage("build"){
